@@ -1,0 +1,12 @@
+.dashboard__container {
+  position: relative;
+  height: 30vh;
+  width: 80vw;
+  border-style: dashed;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: center;
+  border-style: solid;
+}
