@@ -1,0 +1,40 @@
+.card {
+  position: relative;
+  margin: 1%;
+  background-color: #009688;
+  height: 30vh;
+  width: 15vw;
+  box-shadow: -8px 10px 6px -6px rgba(0, 0, 0, 0.7);
+  border-radius: 4px;
+}
+
+.card__internal {
+  display: flex;
+  flex-direction: column;
+}
+
+.forecast__data {
+  border-style: dashed;
+}
+
+.week__day {
+  margin-left: 12%;
+  margin-top: 2%;
+  font-style: oblique;
+}
+
+.temperature__range {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10%;
+  padding-right: 12%;
+}
+
+.temperature__max {
+  font-size: larger;
+  padding-bottom: 12%;
+}
+
+.weather__description {
+  padding-left: 10%;
+}

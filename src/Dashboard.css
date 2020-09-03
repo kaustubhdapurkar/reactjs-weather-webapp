@@ -2,11 +2,55 @@
   position: relative;
   height: 30vh;
   width: 80vw;
-  border-style: dashed;
 }
 
 .dashboard {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  border-style: solid;
+  align-items: center;
+}
+
+.city__name {
+  font-size: large;
+}
+
+.weather__icon {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  font-size: xx-large;
+}
+
+.weather__type {
+  font-style: italic;
+  font-size: larger;
+}
+
+.weather__properties {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.other__properties {
+  padding-top: 2%;
+  width: 30vw;
+  display: flex;
+  justify-content: space-between;
+  font-size: small;
+}
+
+.more__properties {
+  padding-top: 2%;
+  width: 40vw;
+  display: flex;
+  justify-content: space-between;
+  font-size: small;
+}
+.landing__page {
+  text-align: left;
+  font-size: large;
 }
