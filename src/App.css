@@ -4,13 +4,14 @@
   place-items: center;
   background-color: #dadbd3;
   height: 100vh;
+  overflow: hidden;
 }
 
 .app__home {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #80cbc4;
+  background-color: #f4cc70;
   height: 95vh;
   width: 95vw;
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.7);
@@ -20,7 +21,12 @@
 .forecast__card {
   padding-top: 5%;
   position: relative;
+}
+
+.card__cascade {
+  width: 80vw;
   display: flex;
   flex-direction: row;
-  align-items: center;
+
+  justify-content: space-between;
 }

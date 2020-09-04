@@ -51,6 +51,17 @@
   font-size: small;
 }
 .landing__page {
-  text-align: left;
-  font-size: large;
+  margin-top: 20%;
+  font-size: xx-large;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.mark__twain {
+  text-align: right;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10%;
 }

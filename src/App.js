@@ -3,8 +3,7 @@ import "./App.css";
 import HomeBar from "./HomeBar.js";
 import Dashboard from "./Dashboard.js";
 import ForecastCard from "./ForecastCard.js";
-
-//https://api.openweathermap.org/data/2.5/weather?q=nagpur&units=metrics&appid=b65a878c4f61b43435abf5beb4ad0835
+import Slide from "react-reveal/Slide";
 
 function App(props) {
   const [cityName, setCityName] = useState("");
@@ -49,14 +48,29 @@ function App(props) {
           onCityNameChange={handleCityNameSubmit}
           forecastData={forecastData}
         />
+
         <Dashboard weatherData={weatherData} />
         {typeof forecastData.current != "undefined" ? (
           <div className="forecast__card">
-            <ForecastCard forecastData={forecastData.daily[1]} />
-            <ForecastCard forecastData={forecastData.daily[2]} />
-            <ForecastCard forecastData={forecastData.daily[3]} />
-            <ForecastCard forecastData={forecastData.daily[4]} />
-            <ForecastCard forecastData={forecastData.daily[5]} />
+            <Slide bottom cascade>
+              <div className="card__cascade">
+                <h5>
+                  <ForecastCard forecastData={forecastData.daily[1]} />
+                </h5>
+                <h5>
+                  <ForecastCard forecastData={forecastData.daily[2]} />
+                </h5>
+                <h5>
+                  <ForecastCard forecastData={forecastData.daily[3]} />
+                </h5>
+                <h5>
+                  <ForecastCard forecastData={forecastData.daily[4]} />
+                </h5>
+                <h5>
+                  <ForecastCard forecastData={forecastData.daily[5]} />
+                </h5>
+              </div>
+            </Slide>
           </div>
         ) : (
           ""

@@ -2,6 +2,8 @@ import { IconButton, TextField } from "@material-ui/core";
 import React from "react";
 import "./Homebar.css";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
+import Fade from "react-reveal/Fade";
+import { ReactComponent as ReactLogo } from "./favicon.svg";
 
 function HomeBar({ cityName, onCityNameChange, getWeatherData, forecastData }) {
   function handleChange(e) {
@@ -55,25 +57,37 @@ function HomeBar({ cityName, onCityNameChange, getWeatherData, forecastData }) {
     <div className="homebar">
       <div className="homebar__content">
         <div>
-          <form onSubmit={handleSubmit}>
-            <IconButton disabled={true}>
-              <LocationOnIcon color="action" />
-            </IconButton>
-            <TextField
-              id="textfield"
-              onChange={handleChange}
-              value={cityName}
-              size="small"
-            />
-          </form>
+          {typeof forecastData.current != "undefined" ? (
+            <div className="weather__app__icon">
+              <Fade bottom>
+                <ReactLogo />
+              </Fade>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit}>
+              <IconButton disabled={true}>
+                <LocationOnIcon color="action" />
+              </IconButton>
+              <TextField
+                id="textfield"
+                onChange={handleChange}
+                value={cityName}
+                size="small"
+                placeholder="Enter Your City"
+              />
+            </form>
+          )}
         </div>
+
         <div className="timestamp">
           {typeof forecastData.current != "undefined" ? (
-            <p>
-              {`${weekDay[date.getDay()].substr(0, 3)}, 
+            <Fade bottom>
+              <p>
+                {`${weekDay[date.getDay()].substr(0, 3)}, 
               ${month[date.getMonth()].substr(0, 4)} ${date.getDate()},
               ${timestr}`}
-            </p>
+              </p>
+            </Fade>
           ) : (
             ""
           )}
