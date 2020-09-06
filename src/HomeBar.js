@@ -1,5 +1,5 @@
 import React from "react";
-import "./Homebar.css";
+import "./HomeBar.css";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import { IconButton, TextField } from "@material-ui/core";
 import Fade from "react-reveal/Fade";
