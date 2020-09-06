@@ -27,9 +27,9 @@ your browser.
 
 You can start editing the code and your changes will be reflected in the browser window after you save your code.
 
-##### Known Issues:
+#### Known Issues:
 
-###### Issue :one: :
+##### Issue :one: :
 
 If an invalid City Name is entered, the app produces a `404 (Not Found)` error in the console.
 
