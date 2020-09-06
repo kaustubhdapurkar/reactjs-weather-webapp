@@ -27,6 +27,12 @@ your browser.
 
 You can start editing the code and your changes will be reflected in the browser window after you save your code.
 
+##### Known Issues:
+
+###### Issue :one: :
+
+If an invalid City Name is entered, the app produces a `404 (Not Found)` error in the console.
+
 ###### Note:
 
 Before you run the app you will have to **enter your API key** and assign it to the variable `apiKey` in (../src/App.js)
