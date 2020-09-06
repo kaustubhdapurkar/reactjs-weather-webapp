@@ -1,9 +1,9 @@
-import { IconButton, TextField } from "@material-ui/core";
 import React from "react";
 import "./Homebar.css";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
+import { IconButton, TextField } from "@material-ui/core";
 import Fade from "react-reveal/Fade";
-import { ReactComponent as ReactLogo } from "./favicon.svg";
+import { ReactComponent as ReactLogo } from "./appicon.svg";
 
 function HomeBar({ cityName, onCityNameChange, getWeatherData, forecastData }) {
   function handleChange(e) {
@@ -17,15 +17,14 @@ function HomeBar({ cityName, onCityNameChange, getWeatherData, forecastData }) {
   }
 
   let date;
-  let timestr;
+  let time;
 
   if (typeof forecastData.current != "undefined") {
     date = new Date(forecastData.current.dt * 1000);
-    timestr = date.toLocaleTimeString([], {
+    time = date.toLocaleTimeString([], {
       hour: "2-digit",
       minute: "2-digit",
     });
-    console.log(date, timestr);
   }
 
   let weekDay = [
@@ -85,7 +84,7 @@ function HomeBar({ cityName, onCityNameChange, getWeatherData, forecastData }) {
               <p>
                 {`${weekDay[date.getDay()].substr(0, 3)}, 
               ${month[date.getMonth()].substr(0, 4)} ${date.getDate()},
-              ${timestr}`}
+              ${time}`}
               </p>
             </Fade>
           ) : (

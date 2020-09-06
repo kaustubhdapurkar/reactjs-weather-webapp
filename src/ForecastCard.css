@@ -13,10 +13,6 @@
   flex-direction: column;
 }
 
-.forecast__data {
-  border-style: dashed;
-}
-
 .week__day {
   margin-left: 12%;
   margin-top: 2%;

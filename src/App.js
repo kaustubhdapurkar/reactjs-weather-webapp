@@ -5,38 +5,44 @@ import Dashboard from "./Dashboard.js";
 import ForecastCard from "./ForecastCard.js";
 import Slide from "react-reveal/Slide";
 
-function App(props) {
+function App() {
+  const apiKey = "b65a878c4f61b43435abf5beb4ad0835";
+
   const [cityName, setCityName] = useState("");
   const [weatherData, setWeatherData] = useState({});
   const [forecastData, setForecastData] = useState({});
-  var latitude = "";
-  var longitude = "";
+
+  let latitude = "";
+  let longitude = "";
 
   function handleCityNameSubmit(cityName) {
     setCityName(cityName);
   }
 
-  const apiKey = "b65a878c4f61b43435abf5beb4ad0835";
-
   function fetchWeatherData(e) {
-    fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metrics&appid=${apiKey}`
-    )
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-        setWeatherData(result);
-        latitude = result.coord.lat;
-        longitude = result.coord.lon;
+    if (cityName !== "") {
+      fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metrics&appid=${apiKey}`
+      )
+        .then((response) => response.json())
+        .then((result) => {
+          setWeatherData(result);
 
-        fetch(
-          `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&%20exclude=minutely,hourly&appid=b65a878c4f61b43435abf5beb4ad0835`
-        )
-          .then((response) => response.json())
-          .then((forecastResult) => {
-            setForecastData(forecastResult);
-          });
-      });
+          if (result.cod === "404") {
+            alert("Enter a Valid City Name");
+          } else {
+            latitude = result.coord.lat;
+            longitude = result.coord.lon;
+            fetch(
+              `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&%20exclude=minutely,hourly&appid=b65a878c4f61b43435abf5beb4ad0835`
+            )
+              .then((response) => response.json())
+              .then((forecastResult) => {
+                setForecastData(forecastResult);
+              });
+          }
+        });
+    } else alert("Enter a Valid City Name");
   }
 
   return (
@@ -75,8 +81,6 @@ function App(props) {
         ) : (
           ""
         )}
-        {/* ByDay Component */}
-        {/* Summary Component */}
       </div>
     </div>
   );

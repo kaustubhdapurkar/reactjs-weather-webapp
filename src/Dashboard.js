@@ -10,6 +10,36 @@ import IconButton from "@material-ui/core/IconButton";
 
 function Dashboard(props) {
   const dataPresent = typeof props.weatherData.name != "undefined";
+  let cityName,
+    countryName,
+    temperature,
+    weatherIconSrc,
+    weatherDescription,
+    humidity,
+    realFeel,
+    windSpeed,
+    visibility,
+    pressure,
+    minimumTemperature,
+    maximumTemperature;
+
+  if (dataPresent) {
+    cityName = props.weatherData.name;
+    countryName = props.weatherData.sys.country;
+    weatherIconSrc = `https://openweathermap.org/img/wn/${props.weatherData.weather[0].icon}@2x.png`;
+    temperature = Math.round((props.weatherData.main.temp - 273.15) * 10) / 10;
+    weatherDescription = props.weatherData.weather[0].main;
+    humidity = Math.round(props.weatherData.main.humidity * 10) / 10;
+    realFeel =
+      Math.round((props.weatherData.main.feels_like - 273.15) * 10) / 10;
+    windSpeed = Math.round(props.weatherData.wind.speed * 3.6 * 10) / 10;
+    visibility = Math.round(props.weatherData.visibility * 10) / 10;
+    pressure = Math.round(props.weatherData.main.pressure * 10) / 10;
+    maximumTemperature =
+      Math.round((props.weatherData.main.temp_max - 273.15) * 10) / 10;
+    minimumTemperature =
+      Math.round((props.weatherData.main.temp_min - 273.15) * 10) / 10;
+  }
 
   return (
     <div className="dashboard__container">
@@ -21,14 +51,14 @@ function Dashboard(props) {
                 <Button variant="contained" disabled={true}>
                   <LocationOnIcon color="action" />
                   <div className="city__name">
-                    {props.weatherData.name}, {props.weatherData.sys.country}
+                    {cityName}, {countryName}
                   </div>
                 </Button>
               </div>
             </Fade>
           ) : (
             <div className="landing__page">
-              <div className="thought">
+              <div>
                 <div>Climate Is What We Expect,</div>
                 <div>Weather Is What We Get.</div>
                 <div className="mark__twain">- Mark Twain</div>
@@ -63,12 +93,9 @@ function Dashboard(props) {
         <div>
           {dataPresent ? (
             <Fade bottom>
-              <div className="weather__icon" border-style="dashed">
-                <img
-                  src={`https://openweathermap.org/img/wn/${props.weatherData.weather[0].icon}@2x.png`}
-                  alt=""
-                />
-                {Math.round((props.weatherData.main.temp - 273.15) * 10) / 10}°C
+              <div className="weather__icon">
+                <img src={weatherIconSrc} alt="" />
+                {temperature}°C
               </div>
             </Fade>
           ) : (
@@ -79,7 +106,7 @@ function Dashboard(props) {
         <div className="weather__type">
           {dataPresent ? (
             <Fade bottom>
-              <div>{props.weatherData.weather[0].main}</div>{" "}
+              <div>{weatherDescription}</div>{" "}
             </Fade>
           ) : (
             ""
@@ -90,28 +117,17 @@ function Dashboard(props) {
           {dataPresent ? (
             <div className="other__properties">
               <Fade bottom>
-                <div>
-                  Humidity:{" "}
-                  {Math.round(props.weatherData.main.humidity * 10) / 10}%
-                </div>
-                |
+                <div>Humidity: {humidity}%</div>|
               </Fade>
               <Fade bottom>
                 <div>
-                  Real Feel:{" "}
-                  {Math.round(
-                    (props.weatherData.main.feels_like - 273.15) * 10
-                  ) / 10}
+                  Real Feel: {realFeel}
                   °C
                 </div>
                 |
               </Fade>
               <Fade bottom>
-                <div>
-                  Wind Speed:{" "}
-                  {Math.round(props.weatherData.wind.speed * 3.6 * 10) / 10}{" "}
-                  kmph
-                </div>
+                <div>Wind Speed: {windSpeed} kmph</div>
               </Fade>
             </div>
           ) : (
@@ -120,33 +136,21 @@ function Dashboard(props) {
           {dataPresent ? (
             <div className="more__properties">
               <Fade bottom>
-                <div>
-                  Visibility:{" "}
-                  {Math.round(props.weatherData.visibility * 10) / 10} m
-                </div>
-                |
+                <div>Visibility: {visibility} m</div>|
+              </Fade>
+              <Fade bottom>
+                <div>Pressure: {pressure} hPa</div>|
               </Fade>
               <Fade bottom>
                 <div>
-                  Pressure:{" "}
-                  {Math.round(props.weatherData.main.pressure * 10) / 10} hPa
-                </div>
-                |
-              </Fade>
-              <Fade bottom>
-                <div>
-                  Max:{" "}
-                  {Math.round((props.weatherData.main.temp_max - 273.15) * 10) /
-                    10}
+                  Max. Temp. : {maximumTemperature}
                   °C
                 </div>
                 |
               </Fade>
               <Fade bottom>
                 <div>
-                  Min:{" "}
-                  {Math.round((props.weatherData.main.temp_min - 273.15) * 10) /
-                    10}
+                  Min. Temp. : {minimumTemperature}
                   °C
                 </div>
               </Fade>
