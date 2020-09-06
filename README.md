@@ -29,12 +29,12 @@ You can start editing the code and your changes will be reflected in the browser
 
 ###### Note:
 
-Before you run the app you will have to **enter your API key** and assign it to the variable `apiKey` in ../src/App.js
+Before you run the app you will have to **enter your API key** and assign it to the variable `apiKey` in (../src/App.js)
 
 ###### About .gitignore:
 
 This project is being hosted on Google Firebase at https://kd-reactjs-weather-app.web.app and all the Firebase Configuration Files
 have been ignored from the original directory.
-The original API key that I used is stored in ./src/config.js and is being ignored to hide the API key. You can edit the code by writing your own API key and removing the `import apiKeys from "./config.js"` and writing `apiKey = '<Your API KEY>'` at line no. 10 in ../src/App.js as mentioned before.
+The original API key that I used is stored in ./src/config.js and is being ignored to hide the API key. You can edit the code by writing your own API key and removing the `import apiKeys from "./config.js"` and writing `apiKey = '<Your API KEY>'` at line no. 10 in (../src/App.js) as mentioned before.
 
 **Happy Coding**:heart:
