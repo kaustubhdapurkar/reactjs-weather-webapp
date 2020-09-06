@@ -14,16 +14,16 @@ This project can be run on your local machine using Node package manager's `npm 
 
 #### Following are the steps to run the project on your local machine.
 
-##### Step :1::
+##### Step :1: :
 
 Clone or download this project, and open the project directory in your CLI.
 
-##### Step :2::
+##### Step :2: :
 
 After opening the directory perform `npm start`. This should start the web-app at localhost:3000 if the port is not being used in
 your browser.
 
-##### Step :3::
+##### Step :3: :
 
 You can start editing the code and your changes will be reflected in the browser window after you save your code.
 
