@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "kd-reactjs-weather-app",
+    "Weather App": "kd-reactjs-weather-app"
+  }
+}

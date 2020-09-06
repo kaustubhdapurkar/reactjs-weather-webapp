@@ -4,9 +4,10 @@ import HomeBar from "./HomeBar.js";
 import Dashboard from "./Dashboard.js";
 import ForecastCard from "./ForecastCard.js";
 import Slide from "react-reveal/Slide";
+import apiKeys from "./config.js";
 
 function App() {
-  const apiKey = "b65a878c4f61b43435abf5beb4ad0835";
+  const apiKey = apiKeys.openWeatherMapApiKey; //apiKeys.openWeatherMapApiKey;
 
   const [cityName, setCityName] = useState("");
   const [weatherData, setWeatherData] = useState({});
