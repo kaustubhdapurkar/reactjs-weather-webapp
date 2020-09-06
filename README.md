@@ -35,6 +35,6 @@ Before you run the app you will have to **enter your API key** and assign it to 
 
 This project is being hosted on Google Firebase at https://kd-reactjs-weather-app.web.app and all the Firebase Configuration Files
 have been ignored from the original directory.
-The original API key that I used is stored in ./src/config.js and is being ignored to hide the API key. You can edit the code by writing your own API key and removing the `import apiKeys from "./config.js"` and writing `apiKey = '<Your API KEY>'` at line no. 10 in (../src/App.js) as mentioned before.
+The original API key that I used is stored in (../src/config.js) and is being ignored to hide the API key. You can edit the code by writing your own API key and removing the `import apiKeys from "./config.js"` and writing `apiKey = '<Your API KEY>'` at line no. 10 in (../src/App.js) as mentioned before.
 
 **Happy Coding**:heart:
